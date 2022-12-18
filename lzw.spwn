@@ -8,7 +8,7 @@ fromCharCode = (int: @number) {
    return $.b64decode(ascii_table[int])
 }
 
-let lzw_compress = (s) {
+let compress = (s) {
     let dict = {};
     let data = (s + "").split("");
     let out = [];
@@ -37,7 +37,7 @@ let lzw_compress = (s) {
     }
     return out.join("");
 }
-let lzw_decompress = (s) {
+let decompress = (s) {
     let dict = {};
     let data = (s + "").split("");
     let currChar = data[0];
@@ -61,4 +61,4 @@ let lzw_decompress = (s) {
     }
     return out.join("");
 }
-return { lzw_compress, lzw_decompress }
+return { compress, decompress }
